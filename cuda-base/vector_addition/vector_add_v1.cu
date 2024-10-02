@@ -11,7 +11,7 @@ typedef std::chrono::milliseconds ms;
 
 using namespace std;
 // Initilizing vec with random values
-void init_vector(float* vec,size_t n) {
+void init_vector(float* vec, size_t n) {
     std::random_device dev;
     std::mt19937 rng(dev());
     std::uniform_int_distribution<std::mt19937::result_type> dist(1,n); // distribution in range [1, 6]
@@ -23,7 +23,7 @@ void init_vector(float* vec,size_t n) {
 
 void vector_add_cpu(float *vec_a, float *vec_b, float *vec_c, int size) {
     for(int i = 0; i < size;i++) {
-        vec_c[i] = vec_b[i] + vec_b[i];
+        vec_c[i] = vec_a[i] + vec_b[i];
     }
 }
 
@@ -98,7 +98,7 @@ int main() {
     cudaMemcpy(h_c_gpu,d_c,size,cudaMemcpyDeviceToHost);
     bool verify = true;
     for(int i = 0;i < N; i++) {
-        if(fabs(h_c_cpu[i] - h_c_gpu[i])) {
+        if(fabs(h_c_cpu[i] - h_c_gpu[i]) > 1e-5) {
             verify = false;
             break;
         }
