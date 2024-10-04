@@ -5,9 +5,9 @@
 
 #define N 10000000  // Vector size = 10 million
 #define BLOCK_SIZE_1D 1024
-#define BLOCK_SIZE_3D_X 16
+#define BLOCK_SIZE_3D_X 32
 #define BLOCK_SIZE_3D_Y 8
-#define BLOCK_SIZE_3D_Z 8
+#define BLOCK_SIZE_3D_Z 4
 
 typedef std::chrono::high_resolution_clock Time;
 typedef std::chrono::milliseconds ms;
@@ -78,7 +78,7 @@ int main() {
     int num_blocks = (N + BLOCK_SIZE_1D - 1) / BLOCK_SIZE_1D;
 
     // grid and block size dims for 3D
-    int nx = 100000, ny = 100, nz = 1;
+    int nx = 10000000, ny = 1, nz = 1;
     dim3 block_size_3d(BLOCK_SIZE_3D_X,BLOCK_SIZE_3D_Y,BLOCK_SIZE_3D_Z);
     dim3 num_blocks_3d(
         (nx + block_size_3d.x - 1) / block_size_3d.x,

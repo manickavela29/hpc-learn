@@ -43,15 +43,26 @@ Best GRd Practice
 <tr><th> 10 Million data</th><th> 100 Million data</th></tr>
 <tr><td>
 
-Grid Dim | CPU | GPU 1D | GPU 3D 
----------|-----|--------|------
-(16,8,8) | 45.1 ms | 0.32 ms | 0.33 ms 
+Data Dim       | Grid Dim | CPU | GPU 1D | GPU 3D 
+---------      | ---------|-----|--------|------
+(1000,100,100) | (16,8,8) | 51.2 ms | 0.32 ms | 0.33 ms 
+(1000,10,1000) | (16,8,8) | 53.9 ms | 0.32 ms | 0.37 ms
+(1000,1000,10) | (16,8,8) | 50.93ms | 0.32 ms | 0.36 ms
+(100000,10,10) | (16,8,8) | 50.7ms  | 0.32 ms | 0.42 ms
+(100000,1,100) | (16,8,8) | 50.4ms  | 0.32 ms | 0.91 ms
+(100000,100,1) | (16,8,8) | 50.7ms  | 0.32 ms | 0.80 ms
+(100,10,10000)  | (16,8,8) | 50.9ms  | 0.32 ms | 0.35 ms
+(10,10,100000)  | (16,8,8) | 50.7ms  | 0.32 ms | 0.38 ms
+(1,10,1000000)  | (16,8,8) | 51,7ms  | 0.32 ms | 0.08 ms
+(1000000,10,1)  | (16,8,8) | 51,7ms  | 0.32 ms | 1.08 ms
+(10000000,1,1)  | (16,8,8) | 51,7ms  | 0.32 ms | 1.53 ms
+(10000000,1,1)  | (32,8,4) | 51,7ms  | 0.32 ms | 2.23 ms
 
 </td><td>
 
-Grid Dim | CPU | GPU 1D | GPU 3D 
----------|-----|--------|------
-(16,8,8) | 45.1 ms | 0.32 ms | 0.33 ms 
+Data Dim       | Grid Dim | CPU | GPU 1D | GPU 3D 
+---------      | ---------|-----|--------|------
+(1000,100,100) | (16,8,8) | 45.1 ms | 0.32 ms | 0.33 ms 
 
 </td></tr> </table>
 
@@ -62,3 +73,8 @@ Experiments and Observations
       1. i.e (16,8,8) ~ (8,8,16)
    2. Diffreent dimenion also didn't matter much with performance 
       1. i.e (16,8,8) ~ (32,8,4) ~ (64,4,4)
+2. Data Dimsesion
+   1. 10 Million data
+      1. (1000,100,100) ~ (100,1000,100) ~ (100,100,1000)
+
+Data dimension observation is different from what is observed in 3d grid and memoru coalesching theory, will profile and look in details later for vector addition
