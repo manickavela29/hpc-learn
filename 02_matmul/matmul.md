@@ -1,7 +1,9 @@
 # Matrix Multiplication
 1. Simple Matric Multiplication
 2. Tiled Matrix Multiplication
-3. Memory Coalescing Matric Multiplication
+3. Memory Coalesced Matric Multiplication
+
+
 
 Memory Coalesced Matrix Multiplication
 --------------------------------------
