@@ -5,9 +5,9 @@
 
 #define TILE_SIZE 16
 
-#define M 256
-#define N 256
-#define K 256
+#define M 1024
+#define N 1024
+#define K 1024
 
 typedef std::chrono::high_resolution_clock Time;
 typedef std::chrono::milliseconds ms;
