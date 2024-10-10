@@ -1,7 +1,9 @@
-Experimenting with CUDA utilities and tools
+Experimenting with HPC utilities and tools
 
+1. CUDA
+2. Triton
 
 References :
-1. https://www.youtube.com/watch?v=86FAWCzIe_4
+1. https://github.com/Infatoshi/cuda-course/tree/master
 2. https://gist.github.com/pchng gist file for good and bad matmul with memory coalescing analysis
 3. Matmul optim from Simon https://github.com/siboehm/SGEMM_CUDA
