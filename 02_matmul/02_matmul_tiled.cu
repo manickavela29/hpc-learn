@@ -18,7 +18,7 @@ void init_matrix(float *mat, int rows,int cols) {
     std::uniform_int_distribution<std::mt19937::result_type> dist(1,rows*cols);
 
     for(int i = 0 ; i < rows*cols; i++) {
-        mat[i] = static_cast<float>(dist(rng));
+        mat[i] = (float)dist(rng);
     }
 }
 
