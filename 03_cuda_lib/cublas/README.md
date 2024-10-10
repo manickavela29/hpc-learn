@@ -1,7 +1,6 @@
 cuBLAS numbers comparison
 ---------------------
 
-
 cublas api | time
 ---------- | -----
 sgemm      | 5471.1
