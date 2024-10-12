@@ -4,6 +4,9 @@ import triton.language as tl
 import torch
 import time
 
+'''
+BLOCK_SIZE is #elements each program should process
+'''
 @triton.jit
 def add_kernel(x_ptr,
                y_ptr,
@@ -29,7 +32,15 @@ def add(x: torch.Tensor, y: torch.Tensor) :
     
     n = output.numel()
     
-    grid = lambda meta: (triton.cdiv(n,meta['BLOCK_SIZE']),)
+    #Grid and block size are calculated similar to CUDA
+    # Option 1 
+    block_size =  2048
+    grid_size = (n+block_size-1)//block_size
+    grid = (grid_size,)
+
+    # Option 2
+    # meta args <- dynamic for backend to autotune
+    # grid = lambda meta: (triton.cdiv(n,meta['BLOCK_SIZE']),)
     
     add_kernel[grid](x, y, output, n, BLOCK_SIZE=1024)
     return output
