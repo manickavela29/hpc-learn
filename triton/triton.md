@@ -16,3 +16,6 @@ Triton : Blocked Program, Scalar threads
 ### CONs
 - Performance is not tunable, due to lack of control.
   - Minimal support by hints for tile sizes and scheduling
+
+
+References : Triton Tutorial documenetation : https://triton-lang.org/main/getting-started/tutorials/index.html
